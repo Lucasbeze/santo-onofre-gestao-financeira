@@ -218,3 +218,18 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Ambiente virtual
+.venv/
+
+# Arquivos confidenciais
+.env
+
+# Cache do Python
+__pycache__/
+*.pyc
+
+# Bancos de dados locais
+*.db
+*.sqlite
+*.sqlite3
