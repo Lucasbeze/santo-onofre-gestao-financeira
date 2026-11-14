@@ -18,7 +18,7 @@
 
         <p>
             <strong>Saldo pendente:</strong>
-            R$ {{ "%.2f"|format(saldo / 100) }}
+            {{ saldo | moeda }}
         </p>
 
         {% if erro %}
