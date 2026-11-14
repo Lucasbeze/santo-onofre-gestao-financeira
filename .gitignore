@@ -233,3 +233,6 @@ __pycache__/
 *.db
 *.sqlite
 *.sqlite3
+
+# Arquivos temporários do pytest
+.pytest_cache/
