@@ -2,6 +2,7 @@
 name: Testes automatizados - Santo Onofre
 
 on:
+workflow_dispatch:
   push:
     branches: [main, melhoria-qualidade-codigo]
   pull_request:
