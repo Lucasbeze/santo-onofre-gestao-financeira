@@ -1,12 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Santo Onofre - Gestão Financeira</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
     <main class="container">
         <h1>Santo Onofre</h1>
@@ -16,6 +17,10 @@
         <p>Organize suas contas a pagar e receber em um só lugar.</p>
 
         <a class="botao" href="{{ url_for('cadastrar') }}">Cadastrar conta</a>
+        <a class="botao" href="{{ url_for('consultar') }}">
+            Consultar contas
+        </a>
     </main>
 </body>
+
 </html>

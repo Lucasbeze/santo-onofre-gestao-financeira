@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultar Contas - Santo Onofre</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <main class="container">
+        <h1>Santo Onofre</h1>
+        <h2>Contas financeiras</h2>
+
+        {% if contas %}
+        <div class="tabela-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Descrição</th>
+                        <th>Tipo</th>
+                        <th>Valor total</th>
+                        <th>Movimentado</th>
+                        <th>Saldo pendente</th>
+                        <th>Vencimento</th>
+                        <th>Situação</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for conta in contas %}
+                    <tr>
+                        <td>{{ conta["descricao"] }}</td>
+                        <td>{{ conta["tipo"] }}</td>
+                        <td>
+                            R$ {{ "%.2f"|format(conta["valor_centavos"] / 100) }}
+                        </td>
+
+                        <td>
+                            R$ {{ "%.2f"|format(conta["movimentado_centavos"] / 100) }}
+                        </td>
+
+                        <td>
+                            R$ {{ "%.2f"|format(conta["saldo_centavos"] / 100) }}
+                        </td>
+                        <td>{{ conta["data_vencimento"] }}</td>
+                        <td>{{ conta["status"] }}</td>
+                        <td>
+                            {% if conta["status"] != "QUITADA" %}
+                            <a href="{{ url_for('movimentar', id_conta=conta['id_conta']) }}">
+                                Registrar movimentação
+                            </a>
+                            {% else %}
+                            Quitada
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <p>Nenhuma conta cadastrada até o momento.</p>
+        {% endif %}
+
+        <a class="botao" href="{{ url_for('cadastrar') }}">
+            Cadastrar nova conta
+        </a>
+
+        <p>
+            <a href="{{ url_for('inicio') }}">Voltar ao início</a>
+        </p>
+    </main>
+</body>
+
+</html>
