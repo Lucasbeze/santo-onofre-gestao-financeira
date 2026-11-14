@@ -5,10 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Conta - Santo Onofre</title>
+
     <link rel="stylesheet"
           href="{{ url_for('static', filename='style.css') }}">
+
+    <script defer
+            src="{{ url_for('static', filename='acessibilidade.js') }}">
+    </script>
 </head>
+
 <body>
+    <!-- Botão de acessibilidade -->
+    <button
+        type="button"
+        class="botao-acessibilidade"
+        id="alternar-contraste"
+        aria-pressed="false"
+        aria-label="Ativar modo de alto contraste">
+        Alto contraste
+    </button>
+
     <main class="container">
         <h1>Santo Onofre</h1>
         <h2>Cadastrar conta financeira</h2>

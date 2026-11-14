@@ -120,3 +120,70 @@ th {
 tr:hover {
     background-color: #f8fafc;
 }
+
+
+/* Acessibilidade: modo de alto contraste */
+
+body.alto-contraste {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+body.alto-contraste .container {
+    background-color: #111111;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+
+body.alto-contraste h1,
+body.alto-contraste h2,
+body.alto-contraste p,
+body.alto-contraste label {
+    color: #ffffff;
+}
+
+body.alto-contraste .botao,
+body.alto-contraste button {
+    background-color: #ffff00;
+    color: #000000;
+    border: 2px solid #ffff00;
+}
+
+body.alto-contraste th {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+body.alto-contraste td {
+    background-color: #111111;
+    color: #ffffff;
+}
+
+body.alto-contraste input,
+body.alto-contraste select {
+    background-color: #000000;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+
+body.alto-contraste a:not(.botao) {
+    color: #ffff00;
+}
+
+.botao-acessibilidade {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 12px 18px;
+    background-color: #1e293b;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    border-radius: 8px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.botao-acessibilidade:focus-visible {
+    outline: 3px solid #ffbf00;
+    outline-offset: 3px;
+}
