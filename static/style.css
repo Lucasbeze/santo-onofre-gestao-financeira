@@ -47,3 +47,48 @@ button {
 button:hover {
     background-color: #1d4ed8;
 }
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: left;
+    margin-top: 25px;
+}
+
+label {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #94a3b8;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+input:focus, select:focus,
+button:focus-visible, a:focus-visible {
+    outline: 3px solid #2563eb;
+    outline-offset: 3px;
+}
+
+.botao {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 14px 24px;
+    border-radius: 8px;
+    background-color: #2563eb;
+    color: white;
+    text-decoration: none;
+}
+
+.mensagem-erro {
+    padding: 12px;
+    background-color: #fee2e2;
+    color: #991b1b;
+    border-radius: 6px;
+}

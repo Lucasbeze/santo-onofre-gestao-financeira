@@ -30,8 +30,8 @@ def criar_tabelas():
                 descricao TEXT NOT NULL,
                 tipo TEXT NOT NULL
                     CHECK (tipo IN ('PAGAR', 'RECEBER')),
-                valor_total NUMERIC NOT NULL
-                    CHECK (valor_total > 0),
+                valor_centavos INTEGER NOT NULL
+                    CHECK (valor_centavos > 0),
                 data_vencimento TEXT NOT NULL,
                 status TEXT NOT NULL DEFAULT 'PENDENTE'
                     CHECK (status IN ('PENDENTE', 'PARCIAL', 'QUITADA')),
@@ -46,8 +46,8 @@ def criar_tabelas():
                 id_conta INTEGER NOT NULL,
                 tipo TEXT NOT NULL
                     CHECK (tipo IN ('ENTRADA', 'SAIDA')),
-                valor NUMERIC NOT NULL
-                    CHECK (valor > 0),
+                valor_centavos INTEGER NOT NULL
+                    CHECK (valor_centavos > 0),
                 data_movimentacao TEXT NOT NULL,
                 descricao TEXT,
                 FOREIGN KEY (id_conta)
