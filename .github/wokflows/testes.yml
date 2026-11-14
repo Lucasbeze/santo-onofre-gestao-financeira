@@ -1,8 +1,11 @@
 
 name: Testes automatizados - Santo Onofre
 
+
+name: Testes automatizados - Santo Onofre
+
 on:
-workflow_dispatch:
+  workflow_dispatch:
   push:
     branches: [main, melhoria-qualidade-codigo]
   pull_request:
@@ -11,6 +14,7 @@ workflow_dispatch:
 jobs:
   testes:
     runs-on: ubuntu-latest
+
 
     steps:
       - name: Baixar codigo
