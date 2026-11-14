@@ -98,3 +98,30 @@ def test_pagamento_maior_que_saldo(cliente):
         conexao.close()
 
     assert quantidade == 0
+
+def test_descricao_maior_que_200_caracteres(cliente):
+    descricao_longa = "A" * 201
+
+    resposta = cliente.post("/cadastrar", data={
+        "descricao": descricao_longa,
+        "tipo": "PAGAR",
+        "valor": "100.00",
+        "vencimento": "2026-11-20"
+    })
+
+    assert resposta.status_code == 200
+    assert "no máximo 200 caracteres" in resposta.get_data(
+        as_text=True
+    )
+
+    conexao = database.conectar()
+
+    try:
+        quantidade = conexao.execute("""
+            SELECT COUNT(*)
+            FROM contas_financeiras
+        """).fetchone()[0]
+    finally:
+        conexao.close()
+
+    assert quantidade == 0

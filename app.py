@@ -6,6 +6,18 @@ from decimal import Decimal, InvalidOperation
 
 app = Flask(__name__)
 
+@app.template_filter("moeda")
+def formatar_moeda(valor_centavos):
+    valor = valor_centavos / 100
+
+    formato = f"{valor:,.2f}"
+
+    formato = formato.replace(",", "TEMP")
+    formato = formato.replace(".", ",")
+    formato = formato.replace("TEMP", ".")
+
+    return f"R$ {formato}"
+
 criar_tabelas()
 
 
@@ -28,8 +40,11 @@ def cadastrar():
             valor = Decimal(valor_texto)
             data_vencimento = date.fromisoformat(vencimento)
 
+            
             if not descricao:
                 erro = "Informe a descrição da conta."
+            elif len(descricao) > 200:
+                erro = "A descrição deve ter no máximo 200 caracteres."
             elif tipo not in ("PAGAR", "RECEBER"):
                 erro = "Selecione um tipo de conta válido."
             elif not valor.is_finite() or valor <= 0:

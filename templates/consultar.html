@@ -34,15 +34,13 @@
                         <td>{{ conta["descricao"] }}</td>
                         <td>{{ conta["tipo"] }}</td>
                         <td>
-                            R$ {{ "%.2f"|format(conta["valor_centavos"] / 100) }}
+                            {{ conta["valor_centavos"] | moeda }}
                         </td>
-
                         <td>
-                            R$ {{ "%.2f"|format(conta["movimentado_centavos"] / 100) }}
+                            {{ conta["movimentado_centavos"] | moeda }}
                         </td>
-
                         <td>
-                            R$ {{ "%.2f"|format(conta["saldo_centavos"] / 100) }}
+                            {{ conta["saldo_centavos"] | moeda }}
                         </td>
                         <td>{{ conta["data_vencimento"] }}</td>
                         <td>{{ conta["status"] }}</td>
